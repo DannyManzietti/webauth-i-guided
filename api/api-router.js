@@ -11,11 +11,10 @@ router.get("/", (req, res) => {
   res.json({ api: "It's alive" });
 });
 router.get("/hash", (req, res) => {
-  //read a password from body
   const { password } = req.body;
-  //hash password
-  const hash = bcrypt.hashSync(credentials.password, 300);
-  //return to use in object that looks like {password:'original password', hash: 'hash password'}
+
+  const hash = bcrypt.hashSync(credentials.password, 10);
+
   res.status(201).json({ password, hash });
 });
 
