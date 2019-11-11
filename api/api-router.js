@@ -14,7 +14,7 @@ router.get("/hash", (req, res) => {
   //read a password from body
   const { password } = req.body;
   //hash password
-  const hash = bcrypt.hashSync(credentials.password, 14);
+  const hash = bcrypt.hashSync(credentials.password, 300);
   //return to use in object that looks like {password:'original password', hash: 'hash password'}
   res.status(201).json({ password, hash });
 });
